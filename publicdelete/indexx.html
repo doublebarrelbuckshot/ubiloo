@@ -1,0 +1,48 @@
+<script
+  src="http://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
+
+  <head>
+  <title>LED Controller</title>
+  <meta name="viewport" content="width=400px" />
+  
+  <script src="socket.io/socket.io.js"></script>
+  </head>
+  <body>
+  </body>
+
+  <table style="width:100%">
+    <tr>
+      <th>StallID</th>
+      <th>isAvailable</th> 
+    </tr>
+    <tr>
+      <td>
+        <div id="stallid" align="center"></div>
+      </td>
+      <td>
+        <div id="isopen" align="center"></div>
+      </td>
+    </tr>
+  </table>
+
+<script type="text/javascript">
+  function insertData (point) {
+    var data = JSON.parse(point)
+    console.log('data', data)
+    $('#stallid').html(data.stallId)
+    $('#isopen').html(data.isOpen)
+  }
+
+  var socket = io.connect()
+
+  socket.on('data', (data) => {
+    insertData(data)
+  })
+
+</script>
+</html>
