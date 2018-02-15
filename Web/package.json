@@ -1,0 +1,18 @@
+{
+  "name": "temponline",
+  "version": "1.0.0",
+  "description": "get apartment temperature online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.2",
+    "influx": "^5.0.0-alpha.4",
+    "lodash": "^4.17.4",
+    "serialport": "^6.0.4",
+    "socket.io": "^2.0.4"
+  }
+}
